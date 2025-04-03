@@ -7,13 +7,16 @@ provider "helm" {
     token                  = data.aws_eks_cluster_auth.cluster.token
   }
 }
+
+provider "aws" {
+  region = var.region
+
+  default_tags {
+    tags = local.required_tags
+  }
+}
 terraform {
 
-  # cloud {
-  #   workspaces {
-  #     name = "learn-terraform-eks"
-  #   }
-  # }
 
   required_providers {
     aws = {

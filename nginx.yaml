@@ -1,0 +1,19 @@
+controller:
+  replicaCount: 1
+  service:
+    type: LoadBalancer
+  extraArgs:
+    enable-ssl-passthrough: "true"
+  nodeSelector:
+    kubernetes.io/os: linux
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: false
+
+defaultBackend:
+  enabled: true

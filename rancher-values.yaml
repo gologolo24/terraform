@@ -1,0 +1,23 @@
+hostname: rancher.kubegroundapp.click
+
+replicas: 1
+
+ingress:
+  enabled: true
+  tls:
+    source: rancher # Options: letsEncrypt, rancher, secret
+
+letsEncrypt:
+  email: "lejb.golovatyi@develeap.com"
+  environment: "production"
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1000m
+    memory: 1024Mi
+
+auditLog:
+  level: 2

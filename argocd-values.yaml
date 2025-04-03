@@ -1,0 +1,26 @@
+global:
+  image:
+    tag: "v2.14.2"
+
+dex:
+  enabled: false
+
+server:
+  extraArgs:
+    - --insecure
+
+applicationset:
+  enabled: true  # Enable ApplicationSet controller
+  installCRDs: true
+
+
+#   rbacConfig:
+#     policy.default: role:admin  # Ensure default role is admin
+
+# controller:
+#   clusterAdminAccess: true  # Grant full access to the cluster
+
+# configs:
+#   cm:
+#     application.namespaces: "*"  # Allow ArgoCD to manage apps in all namespaces
+#     policy.default: role:admin    # Ensure users have admin access

@@ -1,0 +1,52 @@
+# prometheus-values.yaml
+
+# Enable or disable components
+prometheus:
+  enabled: true
+  service:
+    type: LoadBalancer  # Change to ClusterIP if you don't want external access
+  serviceMonitorSelector: {}
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "250m"
+    limits:
+      memory: "2Gi"
+      cpu: "1"
+
+alertmanager:
+  enabled: true
+  service:
+    type: ClusterIP
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+grafana:
+  enabled: true
+  adminPassword: "admin"  # Change this to a secure password
+  service:
+    type: LoadBalancer  # Change to ClusterIP if you want internal access only
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
+
+# Node Exporter for host metrics
+prometheus-node-exporter:
+  enabled: true
+
+# Kube-state-metrics for Kubernetes object metrics
+kube-state-metrics:
+  enabled: true
+
+# Enable RBAC
+rbac:
+  create: true

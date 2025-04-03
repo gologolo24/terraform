@@ -1,0 +1,13 @@
+global:
+  leaderElection:
+    namespace: "cert-manager"
+
+installCRDs: true
+
+webhook:
+  enabled: true
+
+cainjector:
+  enabled: true
+
+
