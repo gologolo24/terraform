@@ -11,7 +11,7 @@ module "irsa_argocd" {
 }
 
 module "eks" {
-  source  = " "
+  source  = "terraform-aws-modules/eks/aws"
   version = "20.8.5"
 
   cluster_name    = local.cluster_name
